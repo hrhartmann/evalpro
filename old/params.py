@@ -2,9 +2,13 @@
 from math import log
 
 I_PPC = 1.5 # products per client
-I_PRODUCTS = 3649215
+I_PRODUCTS = 3649215 # products on period 0
 I_CLIENTS = I_PRODUCTS / I_PPC
-YEARS = 10
+
+PDR = .1 # project discount rate
+MP = 5 # mean prime in Chilean UF
+EXE_RES = .05354 # exercise result
+YEARS = 10 # period
 
 combinatios = {
     "nocs" : {
@@ -12,12 +16,20 @@ combinatios = {
         "ppgc": .018
     },
     "pessimistic" : {
-        "ngc" : .030,
+        "ngc" : .03,
         "ppgc": .020
     },
     "neutral" : {
         "ngc" : .030,
         "ppgc": .021
+    },
+    "project" : {
+        "ngc" : .032,
+        "ppgc": .022
+    },
+    "good" : {
+        "ngc" : .032,
+        "ppgc": .028
     },
     "optimistic" : {
         "ngc" : .040,
