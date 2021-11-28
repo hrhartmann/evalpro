@@ -6,12 +6,13 @@ class VAN:
                  sells,
                  project_costs,
                  list_sells=[],
+                 list_costs=[],
                  init_investment=0,
                  ut=0.05,
                  period=10,
                  disc_rate=0.1,
                  linear_growth=0):
-        
+
 
         self.sells = sells # annual sales
         self.costs = project_costs # annual costs
@@ -21,7 +22,7 @@ class VAN:
         self.years = period # years to print
         self.disc_rate = disc_rate
         self.linear_growth = linear_growth
-        self.data = {"sells": list_sells}
+        self.data = {"sells": list_sells, "costs": list_costs}
 
     def csv_data(self):
         txt = ""
@@ -41,7 +42,8 @@ class VAN:
             self.data["utilities"] = self.linear_gen(self.utilities)
         else:
             self.data["utilities"] = self.get_utilities()
-        self.data["costs"] = [self.costs for _ in range(self.years)]
+        if not self.data["costs"]:
+            self.data["costs"] = [self.costs for _ in range(self.years)]
         self.data["costs"][0] += self.init_investment
         van = []
         for t in range(self.years):

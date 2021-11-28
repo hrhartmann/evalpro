@@ -2,13 +2,13 @@
 from van_class import VAN
 from params import (
    YEARS,
-   LINEAR_GROWTH, 
-   LIST_SELLS, 
-   SELLS, 
-   COSTS, 
-   INIT_INV, 
-   CLIENTS,  
-   Y_VALUE  
+   LINEAR_GROWTH,
+   LIST_SELLS,
+   SELLS,
+   COSTS,
+   INIT_INV,
+   CLIENTS,
+   Y_VALUE
 )
 
 
@@ -40,11 +40,11 @@ if __name__ == "__main__":
     min_cross_v1 = min_cross_one_p(Y_VALUE, CLIENTS, period=YEARS, objective=COSTS)
     show_values(min_cross_v1, "Vehicles x vehicles")
     annual_sales = get_annual_sales(COSTS, 15, 5)
-    
-    van_obj = VAN(SELLS, 
-                  COSTS, 
-                  list_sells=LIST_SELLS, 
-                  init_investment=INIT_INV, 
+
+    van_obj = VAN(SELLS,
+                  COSTS,
+                  list_sells=LIST_SELLS,
+                  init_investment=INIT_INV,
                   linear_growth=LINEAR_GROWTH)
     txt = van_obj.csv_data()
     name = input("Enter file name: ")
